@@ -23,6 +23,10 @@ model User {
 
   firstName String?
   lastName  String?
+
+  bookmarks Bookmark[]
+
+  @@map("users") // rename model in the studio
 }
 
 model Bookmark {
@@ -33,4 +37,9 @@ model Bookmark {
   title       String
   description String?
   link        String
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id]) // fields: current model field, references: target model field
+
+  @@map("bookmarks")
 }
