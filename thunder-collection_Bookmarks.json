@@ -1,0 +1,43 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Bookmarks",
+    "collectionId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
+    "dateExported": "2024-06-16T10:34:39.270Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "81b89766-b226-4787-9969-414001d354fd",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-06-16T10:34:09.666Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "c116d681-3442-4524-a05d-cba17bed6977",
+            "colId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
+            "containerId": "81b89766-b226-4787-9969-414001d354fd",
+            "name": "signup",
+            "url": "http://localhost:3000/auth/signup",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-16T10:33:46.207Z",
+            "modified": "2024-06-16T10:33:56.281Z",
+            "headers": []
+        },
+        {
+            "_id": "ed674a69-9aee-4067-ae0a-4af89bfbc67b",
+            "colId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
+            "containerId": "81b89766-b226-4787-9969-414001d354fd",
+            "name": "signin",
+            "url": "http://localhost:3000/auth/signin",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-16T10:30:16.849Z",
+            "modified": "2024-06-16T10:30:16.849Z",
+            "headers": []
+        }
+    ],
+    "ref": "ZYAs3eHQkFmoWQxVvj_RPPoyegoNEHihiCHvzQUAKoIavtA9yRIXoltHZ8s0-pwPIJ2G6veW3fYEvuINzmdTvg"
+}
