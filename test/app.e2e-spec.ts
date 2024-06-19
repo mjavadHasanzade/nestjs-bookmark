@@ -3,8 +3,9 @@ import { AppModule } from '../src/app.module';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { PrismaService } from '../src/prisma/prisma.service';
 
-import * as pactum from "pactum";
+import * as pactum from 'pactum';
 import { AuthDto } from '../src/auth/dto';
+import { EditUserDto } from '../src/user/dto';
 
 describe('App e2e', () => {
   let app: INestApplication;
@@ -29,80 +30,132 @@ describe('App e2e', () => {
     prisma = app.get(PrismaService);
     await prisma.cleanDb();
 
-    pactum.request.setBaseUrl("http://localhost:3333")
+    pactum.request.setBaseUrl('http://localhost:3333');
   });
 
   afterAll(() => {
     app.close();
   });
 
-  describe("Auth", () => {
+  describe('Auth', () => {
     const dto: AuthDto = {
-      email: "hjavad@gmail.com",
-      password: "password"
-    }
+      email: 'hjavad@gmail.com',
+      password: 'password',
+    };
 
-    describe("Sign up", () => {
-
-      it("Should Throw Exception if no body passed", () => {
-        return pactum.spec().post("/auth/signup").expectStatus(400);//.inspect();
+    describe('Sign up', () => {
+      it('Should Throw Exception if no body passed', () => {
+        return pactum.spec().post('/auth/signup').expectStatus(400); //.inspect();
       });
 
-      it("Should Throw Exception if no Email Provided ", () => {
-        return pactum.spec().post("/auth/signup").withBody({ password: dto.password }).expectStatus(400);//.inspect();
+      it('Should Throw Exception if no Email Provided ', () => {
+        return pactum
+          .spec()
+          .post('/auth/signup')
+          .withBody({ password: dto.password })
+          .expectStatus(400); //.inspect();
       });
 
-      it("Should Throw Exception if no Password Provided ", () => {
-        return pactum.spec().post("/auth/signup").withBody({ email: dto.email }).expectStatus(400);//.inspect();
+      it('Should Throw Exception if no Password Provided ', () => {
+        return pactum
+          .spec()
+          .post('/auth/signup')
+          .withBody({ email: dto.email })
+          .expectStatus(400); //.inspect();
       });
 
-      it("Should Throw Exception if incorrect Email Provided ", () => {
-        return pactum.spec().post("/auth/signup").withBody({ password: dto.password, email: "hjavadgamail.com" }).expectStatus(400);//.inspect();
+      it('Should Throw Exception if incorrect Email Provided ', () => {
+        return pactum
+          .spec()
+          .post('/auth/signup')
+          .withBody({ password: dto.password, email: 'hjavadgamail.com' })
+          .expectStatus(400); //.inspect();
       });
 
-      it("Should sign up", () => {
-        return pactum.spec().post("/auth/signup").withBody(dto).expectStatus(201)
-          .stores('token', 'access_token');//.inspect();
+      it('Should sign up', () => {
+        return pactum
+          .spec()
+          .post('/auth/signup')
+          .withBody(dto)
+          .expectStatus(201)
+          .stores('token', 'access_token'); //.inspect();
       });
     });
 
-    describe("Sign in", () => {
-
-
-      it("Should Throw Exception if no body passed", () => {
-        return pactum.spec().post("/auth/signin").expectStatus(400);//.inspect();
+    describe('Sign in', () => {
+      it('Should Throw Exception if no body passed', () => {
+        return pactum.spec().post('/auth/signin').expectStatus(400); //.inspect();
       });
 
-      it("Should Throw Exception if no Email Provided ", () => {
-        return pactum.spec().post("/auth/signin").withBody({ password: dto.password }).expectStatus(400);//.inspect();
+      it('Should Throw Exception if no Email Provided ', () => {
+        return pactum
+          .spec()
+          .post('/auth/signin')
+          .withBody({ password: dto.password })
+          .expectStatus(400); //.inspect();
       });
 
-      it("Should Throw Exception if no Password Provided ", () => {
-        return pactum.spec().post("/auth/signin").withBody({ email: dto.email }).expectStatus(400);//.inspect();
+      it('Should Throw Exception if no Password Provided ', () => {
+        return pactum
+          .spec()
+          .post('/auth/signin')
+          .withBody({ email: dto.email })
+          .expectStatus(400); //.inspect();
       });
 
-      it("Should Throw Exception if incorrect Email Provided ", () => {
-        return pactum.spec().post("/auth/signin").withBody({ password: dto.password, email: "hjavadgamail.com" }).expectStatus(400);//.inspect();
+      it('Should Throw Exception if incorrect Email Provided ', () => {
+        return pactum
+          .spec()
+          .post('/auth/signin')
+          .withBody({ password: dto.password, email: 'hjavadgamail.com' })
+          .expectStatus(400); //.inspect();
       });
 
-      it("should sign in", () => {
-        return pactum.spec().post("/auth/signin").withBody(dto).expectStatus(200);//.inspect();
-      })
+      it('should sign in', () => {
+        return pactum
+          .spec()
+          .post('/auth/signin')
+          .withBody(dto)
+          .expectStatus(200); //.inspect();
+      });
+    });
+  });
+
+  describe('Users', () => {
+    describe('Get me', () => {
+      it('Should Get Me', () => {
+        return pactum
+          .spec()
+          .get('/users/me')
+          .withHeaders({ Authorization: 'Bearer $S{token}' })
+          .expectStatus(200); //.inspect();
+      });
+
+      it('Should Edit User', () => {
+        const dto: EditUserDto = {
+          email: 'hjavad1234@gmail.com',
+          firstName: 'mjavad',
+        };
+
+        return pactum
+          .spec()
+          .patch('/users')
+          .withHeaders({ Authorization: 'Bearer $S{token}' })
+          .withBody(dto)
+          .expectStatus(200)
+          .expectBodyContains(dto.firstName)
+          .expectBodyContains(dto.email); //.inspect();
+      });
     });
 
+    describe('Edit user', () => {});
   });
 
-  describe("Users", () => {
-    describe("Get me", () => { });
-    describe("Edit user", () => { });
+  describe('Bookmarks', () => {
+    describe('Get Bookmarks', () => {});
+    describe('Get Bookmark by id', () => {});
+    describe('Create Bookmark', () => {});
+    describe('Edit Bookmark', () => {});
+    describe('Delete Bookmark', () => {});
   });
-
-  describe("Bookmarks", () => {
-    describe("Get Bookmarks", () => { });
-    describe("Get Bookmark by id", () => { });
-    describe("Create Bookmark", () => { });
-    describe("Edit Bookmark", () => { });
-    describe("Delete Bookmark", () => { });
-  });
-
 });
