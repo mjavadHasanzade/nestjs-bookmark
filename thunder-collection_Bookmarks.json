@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Bookmarks",
     "collectionId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
-    "dateExported": "2024-06-16T10:34:39.270Z",
+    "dateExported": "2024-07-01T11:26:04.754Z",
     "version": "1.2",
     "folders": [
         {
@@ -11,6 +11,20 @@
             "containerId": "",
             "created": "2024-06-16T10:34:09.666Z",
             "sortNum": 10000
+        },
+        {
+            "_id": "b19d61a7-ba0d-40cb-80fb-ddb0cb07c6d9",
+            "name": "user",
+            "containerId": "",
+            "created": "2024-06-17T08:38:56.824Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "17454129-3899-4c08-b92e-e115b28d7a6d",
+            "name": "bookmark",
+            "containerId": "",
+            "created": "2024-06-19T13:59:36.390Z",
+            "sortNum": 30000
         }
     ],
     "requests": [
@@ -23,8 +37,64 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-06-16T10:33:46.207Z",
-            "modified": "2024-06-16T10:33:56.281Z",
-            "headers": []
+            "modified": "2024-06-16T14:29:11.528Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"hjavad522@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "f5239fea-ee95-4921-8f34-0f55a76fbf3b",
+            "colId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
+            "containerId": "b19d61a7-ba0d-40cb-80fb-ddb0cb07c6d9",
+            "name": "get me",
+            "url": "http://localhost:3000/users/me",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-17T08:39:01.879Z",
+            "modified": "2024-06-19T14:01:28.054Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaGphdmFkNTIyQGdtYWlsLmNvbSIsImlhdCI6MTcxODY5MzI4MywiZXhwIjoxNzE4Njk0MTgzfQ.QG3I0i9C8xX48wHVNELRl_yZ9gm7-cwMNMtCuRMU4XA"
+                }
+            ]
+        },
+        {
+            "_id": "c315f2b5-8c07-4d3d-b4af-fa38bee110ed",
+            "colId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
+            "containerId": "17454129-3899-4c08-b92e-e115b28d7a6d",
+            "name": "get all",
+            "url": "http://localhost:3000/bookmarks/2",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-19T14:00:06.815Z",
+            "modified": "2024-06-20T13:47:49.210Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaGphdmFkNTIyQGdtYWlsLmNvbSIsImlhdCI6MTcxODg5MTIyNSwiZXhwIjoxNzE4ODkyMTI1fQ.U5Mt3rDB-tEDotut5JecjKj15Nw6K7ah7oYL_mf8nb8"
+                }
+            ]
+        },
+        {
+            "_id": "c3708f42-03e8-4779-b4b6-1dfac7ac36f3",
+            "colId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
+            "containerId": "17454129-3899-4c08-b92e-e115b28d7a6d",
+            "name": "delete",
+            "url": "http://localhost:3000/bookmarks/2",
+            "method": "DELETE",
+            "sortNum": 15000,
+            "created": "2024-06-20T13:37:11.639Z",
+            "modified": "2024-06-20T13:47:20.426Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaGphdmFkNTIyQGdtYWlsLmNvbSIsImlhdCI6MTcxODg5MTIyNSwiZXhwIjoxNzE4ODkyMTI1fQ.U5Mt3rDB-tEDotut5JecjKj15Nw6K7ah7oYL_mf8nb8"
+                }
+            ]
         },
         {
             "_id": "ed674a69-9aee-4067-ae0a-4af89bfbc67b",
@@ -35,9 +105,58 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-06-16T10:30:16.849Z",
-            "modified": "2024-06-16T10:30:16.849Z",
-            "headers": []
+            "modified": "2024-06-16T13:59:17.564Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"hjavad522@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3312dfc5-ef69-4d17-910a-1214c2661836",
+            "colId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
+            "containerId": "17454129-3899-4c08-b92e-e115b28d7a6d",
+            "name": "create",
+            "url": "http://localhost:3000/bookmarks",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-20T13:11:06.084Z",
+            "modified": "2024-06-20T13:38:25.996Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaGphdmFkNTIyQGdtYWlsLmNvbSIsImlhdCI6MTcxODg5MDA1NCwiZXhwIjoxNzE4ODkwOTU0fQ.2Aib1Wf4Q87g-TAAhVCrab6rdMRP3_E1PdKUCZ9Q9_0"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"First Bookmark\",\n  \"link\": \"https://www.youtube.com/watch?v=d6WC5n9G_sM\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "5ad28c49-bc18-48de-ae6f-0fab20aed542",
+            "colId": "a9a08cc7-44bf-46d1-8677-cfb2e06faaee",
+            "containerId": "17454129-3899-4c08-b92e-e115b28d7a6d",
+            "name": "edit",
+            "url": "http://localhost:3000/bookmarks/1",
+            "method": "PATCH",
+            "sortNum": 30000,
+            "created": "2024-06-20T13:26:30.191Z",
+            "modified": "2024-06-20T13:28:25.474Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaGphdmFkNTIyQGdtYWlsLmNvbSIsImlhdCI6MTcxODg5MDA1NCwiZXhwIjoxNzE4ODkwOTU0fQ.2Aib1Wf4Q87g-TAAhVCrab6rdMRP3_E1PdKUCZ9Q9_0"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"First Bookmark\",\n  \"link\": \"https://www.youtube.com/watch?v=d6WC5n9G_sM\",\n  \"description\": \"Learn how to use Kubernetes in this complete course. Kubernetes makes it possible to containerize applications and simplifies app deployment to production.\"\n}",
+                "form": []
+            }
         }
     ],
-    "ref": "ZYAs3eHQkFmoWQxVvj_RPPoyegoNEHihiCHvzQUAKoIavtA9yRIXoltHZ8s0-pwPIJ2G6veW3fYEvuINzmdTvg"
+    "ref": "ZYAs3eHQkFmoWQxVvj_RPCTpV7gE4iZRMi0sgUhQPBR0HLRovyuK4K2SrnhfsM-n-i01_lR-1Fx-rhPJU7pWQw"
 }
